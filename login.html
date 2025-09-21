@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - DY Footwear</title>
+  <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+  <div class="form-wrapper">
+    <div class="form-container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+        <p id="error-message">Invalid credentials!</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    const error = document.getElementById("error-message");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const validEmail = "dhinesh@gmail.com";
+      const validPassword = "dhinesh123";
+
+      if (email === validEmail && password === validPassword) {
+        window.location.href = "index.html";
+      } else {
+        error.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

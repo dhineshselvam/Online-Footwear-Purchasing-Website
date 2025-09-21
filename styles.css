@@ -1,0 +1,148 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+.wel{
+    background-image: url('./img/bg/167504.jpg');
+    background-position: center;
+    background-size: cover;
+    background-color: rgb(41, 201, 241);
+    height: 650px;
+}
+
+
+
+/* Background */
+.bg {
+    background-color: rgb(39, 39, 39);
+    padding: 20px 0;
+}
+
+/* Category Styling */
+.cas, .for, .spo {
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    height: 500px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Add slight hover effect */
+.cas:hover, .for:hover, .spo:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Set background images */
+.cas {
+    background-image: url('./img/Casual/7.PNG');
+    color:black;
+}
+
+.for {
+    background-image: url('./img/Formal/1.PNG');
+    color:black;
+}
+
+.spo {
+    background-image: url('./img/Sports/9.jpg');
+    color:black;
+}
+
+/* Buttons */
+button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #000;
+    color: white;
+    font-weight: 400;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #ff9800;
+    transform: scale(1.1);
+}
+
+/* Disabled buttons */
+button:disabled {
+    background-color: #777;
+    cursor: not-allowed;
+}
+
+/* View All Section */
+.view {
+    background-image: url('./img/bg/pngtree-lot-of-shoes-in-a-store-picture-image_3629444.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 600;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+.view:hover {
+    transform: scale(1.05);
+}
+html {
+    scroll-behavior: smooth;
+  }
+  
+footer{
+    background-color: black;
+}
+
+footer p {
+    font-size: 15px;
+    color: #ccc;
+    
+}
+footer h4 {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .cas, .for, .spo {
+        height: 300px;
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}

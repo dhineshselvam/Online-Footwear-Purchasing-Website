@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DY Footwear</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="header">
+    FORMAL FOOTWEAR
+    <div class="top-buttons">
+      <a href="../wishlist.html" class="top-link">Wishlist (<span id="wishlist-count">0</span>)</a>
+      <a href="../cart.html" class="top-link">Cart (<span id="cart-count">0</span>)</a>
+    </div>
+  </div>
+  <div class="container">
+
+    <div class="product">
+      <img src="./img/1.PNG" alt="Oxford Shoes" />
+      <h3>Classic Oxford Shoes</h3>
+      <p>₹799</p>
+      <a href="#" class="button">Buy Now</a>
+      <div class="action-buttons">
+        <a href="#" class="wishlist">Add to Wishlist</a>
+        <a href="#" class="cart">Add to Cart</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="./img/2.PNG" alt="Derby Shoes" />
+      <h3>Premium Derby Shoes</h3>
+      <p>₹1199</p>
+      <a href="#" class="button">Buy Now</a>
+      <div class="action-buttons">
+        <a href="#" class="wishlist">Add to Wishlist</a>
+        <a href="#" class="cart">Add to Cart</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="./img/3.PNG" alt="Loafers" />
+      <h3>Elegant Leather Loafers</h3>
+      <p>₹1499</p>
+      <a href="#" class="button">Buy Now</a>
+      <div class="action-buttons">
+        <a href="#" class="wishlist">Add to Wishlist</a>
+        <a href="#" class="cart">Add to Cart</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="./img/4.PNG" alt="Monk Strap" />
+      <h3>Stylish Monk Strap</h3>
+      <p>₹1799</p>
+      <a href="#" class="button">Buy Now</a>
+      <div class="action-buttons">
+        <a href="#" class="wishlist">Add to Wishlist</a>
+        <a href="#" class="cart">Add to Cart</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="./img/5.PNG" alt="Chelsea Boots" />
+      <h3>Suede Chelsea Boots</h3>
+      <p>₹1999</p>
+      <a href="#" class="button">Buy Now</a>
+      <div class="action-buttons">
+        <a href="#" class="wishlist">Add to Wishlist</a>
+        <a href="#" class="cart">Add to Cart</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="./img/6.PNG" alt="Cap Toe Shoes" />
+      <h3>Cap Toe Formal Shoes</h3>
+      <p>₹1999</p>
+      <a href="#" class="button">Buy Now</a>
+      <div class="action-buttons">
+        <a href="#" class="wishlist">Add to Wishlist</a>
+        <a href="#" class="cart">Add to Cart</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="./img/7.PNG" alt="Penny Loafers" />
+      <h3>Textured Penny Loafers</h3>
+      <p>₹1999</p>
+      <a href="#" class="button">Buy Now</a>
+      <div class="action-buttons">
+        <a href="#" class="wishlist">Add to Wishlist</a>
+        <a href="#" class="cart">Add to Cart</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="./img/8.PNG" alt="Slip-On" />
+      <h3>Formal Slip-On Shoes</h3>
+      <p>₹1999</p>
+      <a href="#" class="button">Buy Now</a>
+      <div class="action-buttons">
+        <a href="#" class="wishlist">Add to Wishlist</a>
+        <a href="#" class="cart">Add to Cart</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="./img/9.PNG" alt="Wingtip Brogues" />
+      <h3>Wingtip Brogue Shoes</h3>
+      <p>₹1999</p>
+      <a href="#" class="button">Buy Now</a>
+      <div class="action-buttons">
+        <a href="#" class="wishlist">Add to Wishlist</a>
+        <a href="#" class="cart">Add to Cart</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="./img/PC3050-COGNAC-WEB-1.jpg" alt="Cognac Leather" />
+      <h3>Cognac Leather Formals</h3>
+      <p>₹1999</p>
+      <a href="#" class="button">Buy Now</a>
+      <div class="action-buttons">
+        <a href="#" class="wishlist">Add to Wishlist</a>
+        <a href="#" class="cart">Add to Cart</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Initialize cart and wishlist counts from localStorage if available
+    let cartCount = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')).length : 0;
+    let wishlistCount = JSON.parse(localStorage.getItem('wishlist')) ? JSON.parse(localStorage.getItem('wishlist')).length : 0;
+  
+    // Update the cart and wishlist counts on page load
+    document.getElementById('cart-count').innerText = cartCount;
+    document.getElementById('wishlist-count').innerText = wishlistCount;
+  
+    // Handle "Add to Cart" button clicks
+    document.querySelectorAll('.cart').forEach(button => {
+      button.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        // Get product details
+        const product = this.closest('.product');
+        const name = product.querySelector('h3').innerText;
+        const price = product.querySelector('p').innerText;
+        const image = product.querySelector('img').src;
+  
+        // Create product object
+        const item = {
+          name,
+          price,
+          image
+        };
+  
+        // Get cart from localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+        // Add the product to the cart
+        cart.push(item);
+  
+        // Save the updated cart in localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+  
+        // Update cart count on the page
+        cartCount++;
+        document.getElementById('cart-count').innerText = cartCount;
+  
+        // Optional: Alert the user
+        alert(`${name} added to cart!`);
+      });
+    });
+  
+    // Handle "Add to Wishlist" button clicks
+    document.querySelectorAll('.wishlist').forEach(button => {
+      button.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        // Get product details
+        const product = this.closest('.product');
+        const name = product.querySelector('h3').innerText;
+        const price = product.querySelector('p').innerText;
+        const image = product.querySelector('img').src;
+  
+        // Create product object
+        const item = {
+          name,
+          price,
+          image
+        };
+  
+        // Get wishlist from localStorage
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+  
+        // Add the product to the wishlist
+        wishlist.push(item);
+  
+        // Save the updated wishlist in localStorage
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+  
+        // Update wishlist count on the page
+        wishlistCount++;
+        document.getElementById('wishlist-count').innerText = wishlistCount;
+  
+        // Optional: Alert the user
+        alert(`${name} added to wishlist!`);
+      });
+    });
+  </script>
+  
+  <script src="../script.js"></script>
+
+
+</body>
+</html>

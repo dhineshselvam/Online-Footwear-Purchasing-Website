@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Wishlist - DY Footwear</title>
+  <link rel="stylesheet" href="./wishlist.css">
+</head>
+<body>
+  <div class="header">
+    My Wishlist
+    <div class="top-buttons">
+      <a href="../index.html" class="top-link">Back to Page</a>
+      <a href="./cart.html" class="top-link">Cart (<span id="cart-count">0</span>)</a>
+    </div>
+  </div>
+
+  <div class="container" id="wishlist-container">
+    <!-- Wishlist items will be dynamically inserted here -->
+  </div>
+
+  <script>
+    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    const container = document.getElementById('wishlist-container');
+
+    // Initialize cart count from localStorage
+    let cartCount = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')).length : 0;
+    document.getElementById('cart-count').innerText = cartCount;
+
+    // Function to update the wishlist in localStorage and re-render the page
+    function updateWishlist() {
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      renderWishlist();
+    }
+
+    // Function to render the wishlist items
+    function renderWishlist() {
+      container.innerHTML = ''; // Clear the container
+
+      if (wishlist.length === 0) {
+        container.innerHTML = '<p>Your wishlist is empty.</p>';
+      } else {
+        wishlist.forEach((item, index) => {
+          const div = document.createElement('div');
+          div.classList.add('product');
+          div.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <h3>${item.name}</h3>
+            <p>${item.price}</p>
+            <div class="action-buttons">
+              <a href="#" class="wishlist" onclick="removeFromWishlist(${index})">Remove from Wishlist</a>
+              <a href="#" class="cart" onclick="addToCart(${index})">Add to Cart</a>
+            </div>
+          `;
+          container.appendChild(div);
+        });
+      }
+    }
+
+    // Function to remove an item from the wishlist
+    function removeFromWishlist(index) {
+      wishlist.splice(index, 1); // Remove item from the wishlist array
+      updateWishlist(); // Update localStorage and re-render the page
+    }
+
+    // Function to add an item from the wishlist to the cart
+    function addToCart(index) {
+      // Get the selected item from the wishlist
+      const item = wishlist[index];
+
+      // Get cart from localStorage
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      // Add the item to the cart
+      cart.push(item);
+
+      // Save the updated cart in localStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      // Update cart count on the page
+      cartCount++;
+      document.getElementById('cart-count').innerText = cartCount;
+
+      // Optional: Alert the user
+      alert(`${item.name} added to cart!`);
+    }
+
+    // Initial render of wishlist items
+    renderWishlist();
+  </script>
+</body>
+</html>

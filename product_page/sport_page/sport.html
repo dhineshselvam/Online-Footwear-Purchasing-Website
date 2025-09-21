@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DY Footwear</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        SPORT FOOTWEAR
+        <div class="top-buttons">
+          <a href="../wishlist.html" class="top-link">Wishlist (<span id="wishlist-count">0</span>)</a>
+          <a href="../cart.html" class="top-link">Cart (<span id="cart-count">0</span>)</a>
+        </div>
+      </div>
+
+    <div class="container">
+        <div class="product">
+            <img src="./img/10.PNG" alt="Sport Shoe 1">
+            <h3>AirFlex Runner</h3>
+            <p>₹999.00</p>
+            <a href="#" class="button">Buy Now</a>
+            <div class="action-buttons">
+                <a href="#" class="wishlist">Add to Wishlist</a>
+                <a href="#" class="cart">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="./img/2.PNG" alt="Sport Shoe 2">
+            <h3>SpeedX Pro</h3>
+            <p>₹1199.00</p>
+            <a href="#" class="button">Buy Now</a>
+            <div class="action-buttons">
+                <a href="#" class="wishlist">Add to Wishlist</a>
+                <a href="#" class="cart">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="./img/3.PNG" alt="Sport Shoe 3">
+            <h3>RapidGear Max</h3>
+            <p>₹1399.00</p>
+            <a href="#" class="button">Buy Now</a>
+            <div class="action-buttons">
+                <a href="#" class="wishlist">Add to Wishlist</a>
+                <a href="#" class="cart">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="./img/4.PNG" alt="Sport Shoe 4">
+            <h3>ZoomStar 5</h3>
+            <p>₹1599.00</p>
+            <a href="#" class="button">Buy Now</a>
+            <div class="action-buttons">
+                <a href="#" class="wishlist">Add to Wishlist</a>
+                <a href="#" class="cart">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="./img/5.PNG" alt="Sport Shoe 5">
+            <h3>TrailBlazer</h3>
+            <p>₹1799.00</p>
+            <a href="#" class="button">Buy Now</a>
+            <div class="action-buttons">
+                <a href="#" class="wishlist">Add to Wishlist</a>
+                <a href="#" class="cart">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="./img/6.PNG" alt="Sport Shoe 6">
+            <h3>RunMate X</h3>
+            <p>₹1799.00</p>
+            <a href="#" class="button">Buy Now</a>
+            <div class="action-buttons">
+                <a href="#" class="wishlist">Add to Wishlist</a>
+                <a href="#" class="cart">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="./img/7.PNG" alt="Sport Shoe 7">
+            <h3>FlexEdge</h3>
+            <p>₹1799.00</p>
+            <a href="#" class="button">Buy Now</a>
+            <div class="action-buttons">
+                <a href="#" class="wishlist">Add to Wishlist</a>
+                <a href="#" class="cart">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="./img/8.PNG" alt="Sport Shoe 8">
+            <h3>Pulse Boost</h3>
+            <p>₹1799.00</p>
+            <a href="#" class="button">Buy Now</a>
+            <div class="action-buttons">
+                <a href="#" class="wishlist">Add to Wishlist</a>
+                <a href="#" class="cart">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="./img/11.jpg" alt="Sport Shoe 9">
+            <h3>StormWalk</h3>
+            <p>₹1799.00</p>
+            <a href="#" class="button">Buy Now</a>
+            <div class="action-buttons">
+                <a href="#" class="wishlist">Add to Wishlist</a>
+                <a href="#" class="cart">Add to Cart</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="./img/12.jpg" alt="Sport Shoe 10">
+            <h3>VelocityOne</h3>
+            <p>₹1799.00</p>
+            <a href="#" class="button">Buy Now</a>
+            <div class="action-buttons">
+                <a href="#" class="wishlist">Add to Wishlist</a>
+                <a href="#" class="cart">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    
+
+ 
+    <script>
+        // Initialize cart and wishlist counts from localStorage if available
+        let cartCount = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')).length : 0;
+        let wishlistCount = JSON.parse(localStorage.getItem('wishlist')) ? JSON.parse(localStorage.getItem('wishlist')).length : 0;
+      
+        // Update the cart and wishlist counts on page load
+        document.getElementById('cart-count').innerText = cartCount;
+        document.getElementById('wishlist-count').innerText = wishlistCount;
+      
+        // Handle "Add to Cart" button clicks
+        document.querySelectorAll('.cart').forEach(button => {
+          button.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            // Get product details
+            const product = this.closest('.product');
+            const name = product.querySelector('h3').innerText;
+            const price = product.querySelector('p').innerText;
+            const image = product.querySelector('img').src;
+      
+            // Create product object
+            const item = {
+              name,
+              price,
+              image
+            };
+      
+            // Get cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      
+            // Add the product to the cart
+            cart.push(item);
+      
+            // Save the updated cart in localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+      
+            // Update cart count on the page
+            cartCount++;
+            document.getElementById('cart-count').innerText = cartCount;
+      
+            // Optional: Alert the user
+            alert(`${name} added to cart!`);
+          });
+        });
+      
+        // Handle "Add to Wishlist" button clicks
+        document.querySelectorAll('.wishlist').forEach(button => {
+          button.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            // Get product details
+            const product = this.closest('.product');
+            const name = product.querySelector('h3').innerText;
+            const price = product.querySelector('p').innerText;
+            const image = product.querySelector('img').src;
+      
+            // Create product object
+            const item = {
+              name,
+              price,
+              image
+            };
+      
+            // Get wishlist from localStorage
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      
+            // Add the product to the wishlist
+            wishlist.push(item);
+      
+            // Save the updated wishlist in localStorage
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      
+            // Update wishlist count on the page
+            wishlistCount++;
+            document.getElementById('wishlist-count').innerText = wishlistCount;
+      
+            // Optional: Alert the user
+            alert(`${name} added to wishlist!`);
+          });
+        });
+      </script>
+      
+      <script src="../script.js"></script>
+    
+</body>
+</html>

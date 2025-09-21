@@ -1,0 +1,212 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .header {
+    background: #333;
+    color: white;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+  }
+  
+  .top-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  .top-link {
+    margin-left: 15px;
+    background: #444;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .top-link:hover {
+    background: #555;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin: 20px;
+  }
+  
+  .cart-product {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .cart-product img {
+    max-width: 150px;
+    margin-right: 20px;
+  }
+  
+  .cart-product div {
+    flex: 1;
+  }
+  
+  .cart-product h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .cart-product p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .cart-product label {
+    font-size: 14px;
+  }
+  
+  .qty-input,
+  .size-input {
+    width: 60px;
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  .remove {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .remove:hover {
+    background-color: #c82333;
+  }
+  
+  /* Updated Shipping Form Styling */
+  .shipping-form {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 30px auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+  }
+  
+  .shipping-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  
+  .shipping-form label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .shipping-form input[type="text"],
+  .shipping-form input[type="email"],
+  .shipping-form input[type="tel"],
+  .shipping-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .shipping-form input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  .payment-method {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .payment-method label {
+    font-weight: bold;
+  }
+  
+  .payment-options {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .payment-method input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  .payment-details {
+    display: none;
+    margin-top: 20px;
+  }
+  
+  .payment-details input[type="text"],
+  .payment-details input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .shipping-form button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  .shipping-form button[type="submit"]:hover {
+    background-color: #218838;
+  }
+  
+  .cart-buttons {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .cart-buttons button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cart-buttons button:hover {
+    background-color: #0056b3;
+  }
+  

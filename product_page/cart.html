@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Cart - DY Footwear</title>
+  <link rel="stylesheet" href="./cart.css" />
+</head>
+<body>
+    <div class="header">
+        MY CART
+        <div class="top-buttons">
+          
+          <a href="../index.html" class="top-link">Back to Explore </a>
+        </div>
+      </div>
+
+  <div class="container" id="cart-items"></div>
+  
+
+  <h2 id="total-price" style="margin-left: 20px;">Total: ₹0.00</h2>
+
+  <!-- Shipping Details Form -->
+  <div class="shipping-form">
+    <h3>Shipping Details</h3>
+    <form id="shipping-form">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <h3>Payment Method</h3>
+      <label>
+        <input type="radio" name="payment-method" value="cod" checked /> Cash on Delivery
+      </label>
+      <label>
+        <input type="radio" name="payment-method" value="online" /> Online Payment
+      </label>
+
+      <!-- Online Payment Details -->
+      <div id="payment-details" class="payment-details">
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" name="card-number" placeholder="XXXX XXXX XXXX XXXX" />
+
+        <label for="expiry-date">Expiry Date</label>
+        <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" />
+
+        <label for="cvv">CVV</label>
+        <input type="number" id="cvv" name="cvv" placeholder="XXX" />
+      </div>
+
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+
+  <script src="./script.js"></script>
+  
+  
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Buy Product - DY Footwear</title>
+  <link rel="stylesheet" href="buy.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Confirm Your Order</h1>
+
+    <div class="product-details" id="product-details"></div>
+
+    <form id="order-form">
+      <h2>Product Options</h2>
+      <label>Quantity:
+        <input type="number" name="quantity" min="1" value="1" required />
+      </label>
+      <label>Shoe Size:
+        <select name="size" required>
+          <option value="">Select Size</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
+      </label>
+
+      <h2>User Details</h2>
+      <label>Full Name:
+        <input type="text" name="fullname" required />
+      </label>
+      <label>Email:
+        <input type="email" name="email" required />
+      </label>
+      <label>Phone:
+        <input type="tel" name="phone" required />
+      </label>
+      <label>Address:
+        <textarea name="address" rows="4" required></textarea>
+      </label>
+
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+
+  <script>
+    const product = JSON.parse(localStorage.getItem('selectedProduct'));
+    const details = document.getElementById('product-details');
+
+    if (product) {
+      details.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" />
+        <h3>${product.name}</h3>
+        <p>Price: ${product.price}</p>
+      `;
+    }
+
+    document.getElementById('order-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert("Order placed successfully!");
+      localStorage.removeItem('selectedProduct');
+      window.location.href = 'casual.html'; // Or home page
+    });
+  </script>
+</body>
+</html>
